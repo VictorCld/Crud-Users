@@ -55,7 +55,7 @@ public class UserService {
     }
 
     public void deleteById(UUID userId){
-        User user = userRepository.findById(userId).orElseThrow(UserNotFound::new);
+        userRepository.findById(userId).orElseThrow(UserNotFound::new);
 
         userRepository.deleteById(userId);
     }

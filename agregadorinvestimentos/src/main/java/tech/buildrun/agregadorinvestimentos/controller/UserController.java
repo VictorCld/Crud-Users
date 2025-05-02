@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tech.buildrun.agregadorinvestimentos.dto.UserDto.CreateUserDto;
 import tech.buildrun.agregadorinvestimentos.dto.UserDto.UserDto;
-import tech.buildrun.agregadorinvestimentos.entity.User;
 import tech.buildrun.agregadorinvestimentos.service.UserService;
 
 import java.util.List;
