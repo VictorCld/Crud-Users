@@ -44,9 +44,8 @@ public class UserService {
         );
     }
 
-    public List<UserDto> getAll(){
-        List<User> users = userRepository.findAll();
-        return DtoUtils.convertModelList(users, DtoUtils::userModelToDto );
+    public List<UserDto> getAll() {
+        return DtoUtils.convertModelList(userRepository.findAll(), DtoUtils::userModelToDto);
     }
 
     public UserDto findById(UUID userId){

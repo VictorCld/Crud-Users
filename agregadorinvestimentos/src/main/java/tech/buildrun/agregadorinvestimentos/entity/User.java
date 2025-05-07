@@ -1,10 +1,13 @@
 package tech.buildrun.agregadorinvestimentos.entity;
 
 import jakarta.persistence.*;
+
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -12,7 +15,7 @@ import java.util.UUID;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID userId;
 
     @Column(name = "username")
@@ -29,6 +32,9 @@ public class User {
 
     @UpdateTimestamp
     private Instant updateTimestamp;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Product> products = new ArrayList<>();
 
     public User() {
     }
@@ -84,5 +90,13 @@ public class User {
 
     public void setUpdateTimestamp() {
         this.updateTimestamp = Instant.now();
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+    
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }
